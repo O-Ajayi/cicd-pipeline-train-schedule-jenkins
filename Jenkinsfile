@@ -4,16 +4,20 @@ pipeline {
     stage ('Build') {
       steps {
         echo 'Running build automation'
-        sh './build/deploy-ssm.sh'
+        // sh './build/deploy-ssm.sh'
         // archiveArtifacts artifacts: 'dist/trainSchedule.zip'
       }
     }
     stage ('Test') {
       steps {
-        echo 'Running test automation'
-        // sh './gradlew build --no-daemon'
-        // archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+        if (env.BRANCH_NAME == 'dev') {
+          sh './build/deploy-ssm.sh /ssm/dev/dev.csv'
+          
+            // directories = ['/path/to/dir1']
+        } else if (env.BRANCH_NAME == 'test') {
+          sh './build/deploy-ssm.sh /ssm/int/int.csv'
       }
     }
   }
  }
+}
