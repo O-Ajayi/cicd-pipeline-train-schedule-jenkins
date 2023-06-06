@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Running this from the bash script"
-echo $pwd
+pwd
 # CURRENT_DIR=$(pwd)
 # INPUT="${CURRENT_DIR}../ssm/dev/dev.csv"
 # OLDIFS=$IFS
