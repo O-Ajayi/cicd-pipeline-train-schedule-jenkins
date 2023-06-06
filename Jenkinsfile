@@ -9,6 +9,11 @@ pipeline {
       }
     }
     stage ('Test') {
+      when {
+          expression {
+              return (env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'test')
+          }
+      }
       steps {
         script{
           if (env.BRANCH_NAME == 'dev') {
@@ -18,6 +23,6 @@ pipeline {
           }
         }
       }
-   }
+    }
   }
 }
