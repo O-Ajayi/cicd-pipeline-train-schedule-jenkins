@@ -10,18 +10,17 @@ pipeline {
     }
     stage ('Test') {
       when {
-          expression {
-              return (env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'test')
-          }
+        expression {env.BRANCH_NAME == 'dev'}
       }
       steps {
-        script{
-          if (env.BRANCH_NAME == 'dev') {
-            sh './build/deploy-ssm.sh /ssm/dev/dev.csv'
-          } else if (env.BRANCH_NAME == 'test') {
-            sh './build/deploy-ssm.sh /ssm/int/int.csv'
-          }
-        }
+        sh './build/deploy-ssm.sh /ssm/dev/dev.csv'
+        // script{
+        //   if (env.BRANCH_NAME == 'dev') {
+        //     sh './build/deploy-ssm.sh /ssm/dev/dev.csv'
+        //   } else if (env.BRANCH_NAME == 'test') {
+        //     sh './build/deploy-ssm.sh /ssm/int/int.csv'
+        //   }
+        // }
       }
     }
   }
