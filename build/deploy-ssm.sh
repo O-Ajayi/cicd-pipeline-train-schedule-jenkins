@@ -3,7 +3,7 @@ echo "Running this from the bash script"
 
 # CURRENT_DIR=$(pwd)
 # INPUT="${CURRENT_DIR}../ssm/dev/dev.csv"
-INPUT="${CURRENT_DIR}/ssm/dev/dev.csv"
+INPUT="/ssm/dev/dev.csv"
 OLDIFS=$IFS
 IFS=','
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
