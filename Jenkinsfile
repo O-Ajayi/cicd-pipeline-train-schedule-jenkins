@@ -13,14 +13,11 @@ pipeline {
         script{
           if (env.BRANCH_NAME == 'dev') {
             sh './build/deploy-ssm.sh /ssm/dev/dev.csv'
-            
-              // directories = ['/path/to/dir1']
           } else if (env.BRANCH_NAME == 'test') {
             sh './build/deploy-ssm.sh /ssm/int/int.csv'
+          }
         }
-
-        }
-    }
+      }
+   }
   }
- }
 }
