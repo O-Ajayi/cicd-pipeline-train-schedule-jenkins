@@ -9,9 +9,12 @@ pipeline {
       }
     }
     stage('Example') {
-      if("$env.BRANCH_NAME" == 'dev')
       steps {
-        echo 'Run Build is true'
+        if("$env.BRANCH_NAME" == 'dev')
+        {
+          echo 'Run Build is true'
+
+        }
       }
         // if (env.BRANCH_NAME == 'dev') {
         //     echo 'I only execute on the master branch'
