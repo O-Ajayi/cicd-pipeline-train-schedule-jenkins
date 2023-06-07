@@ -9,11 +9,13 @@ pipeline {
       }
     }
     stage('Example') {
+      steps {
         if (env.BRANCH_NAME == 'dev') {
             echo 'I only execute on the master branch'
         } else {
             echo 'I execute elsewhere'
         }
+      }
     }
     stage ('Test') {
       when {
