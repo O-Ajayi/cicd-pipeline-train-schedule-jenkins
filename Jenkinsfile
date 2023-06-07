@@ -3,11 +3,12 @@ pipeline {
 
   environment {
       FOO = "bar"
+      BRANCH_NAME = "dev"
   }
   stages {
     stage ('Build') {
       when {
-        expression {env.BRANCH_NAME == 'dev'}
+        expression {"env.BRANCH_NAME == dev"}
       }
       steps {
         echo 'Running build automation'
