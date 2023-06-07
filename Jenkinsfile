@@ -9,10 +9,11 @@ pipeline {
       }
     }
     stage('Example') {
+      if("$env.BRANCH_NAME" == 'dev')
 
-      when {
-        expression { $env.BRANCH_NAME == "dev" }
-      }
+      // when {
+      //   expression { "$env.BRANCH_NAME" == "dev" }
+      // }
       steps {
         echo 'Run Build is true'
       }
