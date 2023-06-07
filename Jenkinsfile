@@ -2,19 +2,21 @@ pipeline {
   agent any
   stages {
     stage ('Build') {
+      when {
+        expression {BRANCH_NAME == 'dev'}
+      }
       steps {
         echo 'Running build automation'
         // sh './build/deploy-ssm.sh'
-        // archiveArtifacts artifacts: 'dist/trainSchedule.zip'
       }
     }
     stage('Example') {
+      when {
+        expression {BRANCH_NAME == 'test'}
+      }
       steps {
-        if(${env.BRANCH_NAME} == 'dev')
-        {
           echo 'Run Build is true'
 
-        }
       }
         // if (env.BRANCH_NAME == 'dev') {
         //     echo 'I only execute on the master branch'
