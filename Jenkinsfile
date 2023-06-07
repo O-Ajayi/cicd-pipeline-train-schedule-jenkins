@@ -21,6 +21,7 @@ pipeline {
       steps {
         echo "FOO = ${env.FOO}"
         echo "NAME = ${env.NAME}"
+        echo ${env.BRANCH_NAME}
 
         script {
             env.TEST_VARIABLE = "some test value"

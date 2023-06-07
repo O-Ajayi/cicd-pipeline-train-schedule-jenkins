@@ -1,8 +1,9 @@
 #!/bin/bash
 echo "Running this from the bash script"
-
+echo $1
 CURRENT_DIR=$(pwd)
 INPUT="${CURRENT_DIR}$1"
+echo $INPUT
 OLDIFS=$IFS
 IFS=','
 [ ! -f $INPUT ] && { echo "$INPUT file not found"; exit 99; }
