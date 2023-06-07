@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage ('Build') {
       when {
-        expression {BRANCH_NAME == 'dev'}
+        expression {env.BRANCH_NAME == 'dev'}
       }
       steps {
         echo 'Running build automation'
@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Example') {
       when {
-        expression {BRANCH_NAME == 'test'}
+        expression {env.BRANCH_NAME == 'test'}
       }
       steps {
           echo 'Run Build is true'
