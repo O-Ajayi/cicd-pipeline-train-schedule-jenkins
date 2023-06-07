@@ -10,10 +10,10 @@ pipeline {
     }
     stage ('Test') {
       when {
-        expression {env.BRANCH_NAME == 'dev'}
+        expression {env.BRANCH_NAME == 'test'}
       }
       steps {
-        sh './build/deploy-ssm.sh /ssm/dev/dev.csv'
+        sh './build/deploy-ssm.sh /ssm/int/int.csv'
         // script{
         //   if (env.BRANCH_NAME == 'dev') {
         //     sh './build/deploy-ssm.sh /ssm/dev/dev.csv'
