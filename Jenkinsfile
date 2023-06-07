@@ -11,7 +11,7 @@ pipeline {
     stage('Example') {
 
       when {
-        expression { BRANCH_NAME == 'dev' }
+        expression { $env.BRANCH_NAME == "dev" }
       }
       steps {
         echo 'Run Build is true'
