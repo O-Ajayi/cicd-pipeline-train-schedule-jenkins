@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Example') {
       steps {
-        if(env.BRANCH_NAME == 'dev')
+        if(${env.BRANCH_NAME} == 'dev')
         {
           echo 'Run Build is true'
 
