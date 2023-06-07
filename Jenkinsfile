@@ -17,6 +17,7 @@ pipeline {
     stage("Env Variables") {
       environment {
           NAME = "Alan"
+          BRANCH_NAME = "dev"
       }
       steps {
         echo "FOO = ${env.FOO}"
