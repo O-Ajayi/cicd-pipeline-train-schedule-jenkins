@@ -8,6 +8,21 @@ pipeline {
         // archiveArtifacts artifacts: 'dist/trainSchedule.zip'
       }
     }
+    stage ('Dev') {
+      when {
+        expression {env.BRANCH_NAME == 'dev'}
+      }
+      steps {
+        sh './build/deploy-ssm.sh /ssm/dev/dev.csv'
+        // script{
+        //   if (env.BRANCH_NAME == 'dev') {
+        //     sh './build/deploy-ssm.sh /ssm/dev/dev.csv'
+        //   } else if (env.BRANCH_NAME == 'test') {
+        //     sh './build/deploy-ssm.sh /ssm/int/int.csv'
+        //   }
+        // }
+      }
+    }
     stage ('Test') {
       when {
         expression {env.BRANCH_NAME == 'test'}
